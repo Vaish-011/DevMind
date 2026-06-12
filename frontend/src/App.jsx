@@ -6,6 +6,7 @@ import {
 
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import RepositoryStructure from "./pages/RepositoryStructure";
 
 function App() {
 
@@ -21,6 +22,10 @@ function App() {
         <Route
  path="/dashboard"
  element={<Dashboard />}
+/>
+<Route
+  path="/repository/:repoId"
+  element={<RepositoryStructure />}
 />
       </Routes>
 

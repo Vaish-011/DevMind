@@ -11,11 +11,16 @@ connectDB();
 const app = express();
 const testRoutes = require("./routes/testRoutes");
 const authRoutes = require("./routes/authRoutes");
-
-app.use("/api/auth", authRoutes);
-app.use("/api/test", testRoutes);
+const repositoryRoutes = require("./routes/repositoryRoutes");
+const analyzerRoutes = require("./routes/analyzerRoutes");
+const chunkRoutes = require("./routes/chunkRoutes");
 app.use(cors());
 app.use(express.json());
+app.use("/api/auth", authRoutes);
+app.use("/api/test", testRoutes);
+app.use("/api/repositories", repositoryRoutes);
+app.use("/api/chunks", chunkRoutes);
+app.use("/api/analyze", analyzerRoutes);
 
 app.get("/", (req, res) => {
   res.json({
